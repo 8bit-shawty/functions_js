@@ -91,6 +91,9 @@ let personObject = {
     name: "Jon Doe",
     age: 40
 }
+let noAgePersonObject = {
+    name: "Jeff Bezoz",
+}
 
 // increment age
 function incrementAge(personObject, n){
@@ -99,6 +102,13 @@ function incrementAge(personObject, n){
     return personObject
 }
 
+function incrementAgeWhenZero(noAgePersonObject, n){
+    let incrementedAge = age + n
+    noAgePersonObject.age = incrementedAge;
+    return noAgePersonObject
+}
+
+console.log(incrementAgeWhenZero(noAgePersonObject, 10, age = 0))
 //increment age and return copy 
 let clonePerson = {...personObject}
 // console.log(clonePerson)
