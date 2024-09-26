@@ -1,38 +1,19 @@
-const csvString = [
-    { id: "42", name: "Bruce", occupation: "Knight", age: "41" }, 
-    { id: "48", name: "Barry", occupation: "Runner", age: "25" }, 
-    { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, 
-    { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, 
-    { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+let personObject = {
+    name: "Jon Doe",
+    age: 40
+}
 
-//.sort
-// console.log(csvString.sort((a, b) => Number(a.age) - Number(b.age)));
+// increment age
+function incrementAge(personObject, n){
+    let incrementedAge = personObject.age + n
+    personObject.age = incrementedAge
+    return personObject
+}
 
-//.filter
-// let filter = csvString.filter((person) => Number(person.age) > 50);
-// for(let i = 0; i < csvString.length; i++){
-//     console.log(Number(filter[i].age))
-// }
-// console.log(csvString.filter((person) => Number(person.age) > 50))
+//increment age and return copy 
+let clonePerson = {...personObject}
+// console.log(clonePerson)
 
-//.map
-// const newData = csvString.map(person => ({
-//     id: person.id,
-//     name: person.name,
-//     job: person.occupation,
-//     age: (Number(person.age) + 1).toString()
-//     // age: (parseInt(person.age) +1 ).toString()
-// }))
-// console.log(newData)
+console.log(incrementAge(clonePerson, 6))
 
-//.reduce
-// console.log(csvString.reduce((n, {age}) => n + Number(age), 0))
-const sumOfAges = csvString.reduce((n, {age}) => n + Number(age), 0)
-console.log(sumOfAges)
-
-function calculateAvgAge(sumOfAges, csvString){
-    let numOfPeople = csvString.length
-    return sumOfAges / numOfPeople
-} 
-
-console.log(calculateAvgAge(sumOfAges, csvString))
+console.log(incrementAge(personObject, 5));

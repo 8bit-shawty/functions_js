@@ -62,17 +62,17 @@ const csvString = [
 // for(let i = 0; i < csvString.length; i++){
 //     console.log(Number(filter[i].age))
 // }
-// console.log(csvString.filter((person) => Number(person.age) > 50))
+console.log(csvString.filter((person) => Number(person.age) > 50))
 
 //.map
-// const newData = csvString.map(person => ({
-//     id: person.id,
-//     name: person.name,
-//     job: person.occupation,
-//     age: (Number(person.age) + 1).toString()
-//     // age: (parseInt(person.age) +1 ).toString()
-// }))
-// console.log(newData)
+const newData = csvString.map(person => ({
+    id: person.id,
+    name: person.name,
+    job: person.occupation,
+    age: (Number(person.age) + 1).toString()
+    // age: (parseInt(person.age) +1 ).toString()
+}))
+console.log(newData)
 
 //.reduce
 // console.log(csvString.reduce((n, {age}) => n + Number(age), 0))
@@ -85,3 +85,25 @@ function calculateAvgAge(sumOfAges, csvString){
 } 
 
 console.log(calculateAvgAge(sumOfAges, csvString))
+
+//PART 3
+let personObject = {
+    name: "Jon Doe",
+    age: 40
+}
+
+// increment age
+function incrementAge(personObject, n){
+    let incrementedAge = personObject.age + n
+    personObject.age = incrementedAge
+    return personObject
+}
+
+//increment age and return copy 
+let clonePerson = {...personObject}
+// console.log(clonePerson)
+
+//two different objects - one being a clone of the other one with different values
+console.log(incrementAge(personObject, 5));
+
+console.log(incrementAge(clonePerson, 6));
